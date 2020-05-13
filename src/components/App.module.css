@@ -1,0 +1,17 @@
+.flexContainer {
+  display: flex;
+  padding: 0;
+}
+
+.flexContainer > label {
+  width: 50px;
+}
+
+.outputContainer {
+  composes: flexContainer;
+}
+
+.switchContainer {
+  margin-left: 50px;
+  composes: flexContainer;
+}
