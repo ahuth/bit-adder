@@ -46,7 +46,7 @@ export default function App() {
         <BitRow
           bits={output}
           cssCell={styles.bit}
-          heading="Output"
+          heading="Sum"
           numEmptyLeadingCells={0}
           renderBit={(bit) => !!bit ? '✅' : null}
         />
