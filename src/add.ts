@@ -1,5 +1,7 @@
 import { Bit, and, or, xor } from './circuitry';
 
+export type { Bit };
+
 // Add 2 1-bit numbers together.
 function halfAdder(augend: Bit, addend: Bit) {
   return {
@@ -24,7 +26,7 @@ function fullAdder(a: Bit, b: Bit, carryIn: Bit) {
 // 0 and 510. To representt that sum, we need 9 bits.
 export default function add(inputA: Bit[], inputB: Bit[]): Bit[] {
   const output: Bit[] = [];
-  let carry = false;
+  let carry: Bit = 0;
 
   for (let index = 0; index < inputA.length; index ++) {
     const result = fullAdder(inputA[index], inputB[index], carry);

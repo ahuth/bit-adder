@@ -1,17 +1,17 @@
-export type Bit = boolean;
+export type Bit = 0 | 1;
 
 export function and(a: Bit, b: Bit): Bit {
   if (a) {
     if (b) {
-      return true;
+      return 1;
     }
   }
-  return false;
+  return 0;
 }
 
 export function invert(a: Bit): Bit {
-  if (a) { return false; }
-  return true;
+  if (a) { return 0; }
+  return 1;
 }
 
 export function nand(a: Bit, b: Bit) {
@@ -19,9 +19,9 @@ export function nand(a: Bit, b: Bit) {
 }
 
 export function or(a: Bit, b: Bit): Bit {
-  if (a) { return true; }
-  if (b) { return true; }
-  return false;
+  if (a) { return 1; }
+  if (b) { return 1; }
+  return 0;
 }
 
 export function xor(a: Bit, b: Bit): Bit {
