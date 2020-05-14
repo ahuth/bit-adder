@@ -10,6 +10,14 @@ function flipBit(index: number) {
   };
 }
 
+function parseBits(bits: boolean[]): number {
+  // The least significant digits are first, which makes adding easier. However, we need the most
+  // significant digits first to convert to a number;
+  const reversed = bits.slice().reverse();
+  const digits = reversed.map((bit) => bit ? 1 : 0).join('');
+  return parseInt(digits, 2);
+}
+
 export default function App() {
   const [inputA, setInputA] = useState([false, false, false, false, false, false, false, false]);
   const [inputB, setInputB] = useState([false, false, false, false, false, false, false, false]);
@@ -28,6 +36,7 @@ export default function App() {
           <label className={styles.bit}>A2 <input checked={inputA[2]} onChange={() => setInputA(flipBit(2))} type="checkbox" /></label>
           <label className={styles.bit}>A1 <input checked={inputA[1]} onChange={() => setInputA(flipBit(1))} type="checkbox" /></label>
           <label className={styles.bit}>A0 <input checked={inputA[0]} onChange={() => setInputA(flipBit(0))} type="checkbox" /></label>
+          <span>(Equivalent to: {parseBits(inputA)})</span>
         </div>
       </fieldset>
       <fieldset>
@@ -41,6 +50,7 @@ export default function App() {
           <label className={styles.bit}>B2 <input checked={inputB[2]} onChange={() => setInputB(flipBit(2))} type="checkbox" /></label>
           <label className={styles.bit}>B1 <input checked={inputB[1]} onChange={() => setInputB(flipBit(1))} type="checkbox" /></label>
           <label className={styles.bit}>B0 <input checked={inputB[0]} onChange={() => setInputB(flipBit(0))} type="checkbox" /></label>
+          <span>(Equivalent to: {parseBits(inputB)})</span>
         </div>
       </fieldset>
       <fieldset>
@@ -55,6 +65,7 @@ export default function App() {
           <span className={styles.bit}>O2 {output[2] ? '✅' : null}</span>
           <span className={styles.bit}>O1 {output[1] ? '✅' : null}</span>
           <span className={styles.bit}>O0 {output[0] ? '✅' : null}</span>
+          <span>(Equivalent to: {parseBits(output)})</span>
         </div>
       </fieldset>
     </form>
