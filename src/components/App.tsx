@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as Circuitry from '../circuitry';
 import styles from './App.module.css';
 
 function flipBit(index: number) {
@@ -9,9 +10,17 @@ function flipBit(index: number) {
   };
 }
 
+function orAll(inputA: boolean[], inputB: boolean[]) {
+  return inputA.map(function (bitA, index) {
+    const bitB = inputB[index];
+    return Circuitry.or(bitA, bitB);
+  });
+}
+
 export default function App() {
   const [inputA, setInputA] = useState([false, false, false, false, false, false, false, false]);
   const [inputB, setInputB] = useState([false, false, false, false, false, false, false, false]);
+  const output  = orAll(inputA, inputB);
 
   return (
     <form>
@@ -44,15 +53,15 @@ export default function App() {
       <fieldset>
         <legend>Output</legend>
         <div className={styles.outputContainer}>
-          <label>O8 <input disabled type="checkbox" /></label>
-          <label>O7 <input disabled type="checkbox" /></label>
-          <label>O6 <input disabled type="checkbox" /></label>
-          <label>O5 <input disabled type="checkbox" /></label>
-          <label>O4 <input disabled type="checkbox" /></label>
-          <label>O3 <input disabled type="checkbox" /></label>
-          <label>O2 <input disabled type="checkbox" /></label>
-          <label>O1 <input disabled type="checkbox" /></label>
-          <label>O0 <input disabled type="checkbox" /></label>
+          <label>O8 <input checked={false} disabled type="checkbox" /></label>
+          <label>O7 <input checked={output[7]} disabled type="checkbox" /></label>
+          <label>O6 <input checked={output[6]} disabled type="checkbox" /></label>
+          <label>O5 <input checked={output[5]} disabled type="checkbox" /></label>
+          <label>O4 <input checked={output[4]} disabled type="checkbox" /></label>
+          <label>O3 <input checked={output[3]} disabled type="checkbox" /></label>
+          <label>O2 <input checked={output[2]} disabled type="checkbox" /></label>
+          <label>O1 <input checked={output[1]} disabled type="checkbox" /></label>
+          <label>O0 <input checked={output[0]} disabled type="checkbox" /></label>
         </div>
       </fieldset>
     </form>
