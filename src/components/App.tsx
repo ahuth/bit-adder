@@ -42,19 +42,13 @@ export default function App() {
           numEmptyLeadingCells={1}
           renderBit={(bit, index) => <input checked={!!bit} onChange={() => setInputB(flipBit(index))} type="checkbox" />}
         />
-        <tr>
-          <th>Sum</th>
-          <td className={styles.bit}>{output[8] ? '✅' : null}</td>
-          <td className={styles.bit}>{output[7] ? '✅' : null}</td>
-          <td className={styles.bit}>{output[6] ? '✅' : null}</td>
-          <td className={styles.bit}>{output[5] ? '✅' : null}</td>
-          <td className={styles.bit}>{output[4] ? '✅' : null}</td>
-          <td className={styles.bit}>{output[3] ? '✅' : null}</td>
-          <td className={styles.bit}>{output[2] ? '✅' : null}</td>
-          <td className={styles.bit}>{output[1] ? '✅' : null}</td>
-          <td className={styles.bit}>{output[0] ? '✅' : null}</td>
-          <td className={styles.bit}>{parseBits(output)}</td>
-        </tr>
+        <BitRow
+          bits={output}
+          cssCell={styles.bit}
+          heading="Output"
+          numEmptyLeadingCells={0}
+          renderBit={(bit) => !!bit ? '✅' : null}
+        />
       </tbody>
     </table>
   );
@@ -66,12 +60,4 @@ function flipBit(index: number) {
     nextBits[index] = invert(nextBits[index]);
     return nextBits;
   };
-}
-
-function parseBits(bits: Bit[]): number {
-  // The least significant digits are first, which makes adding easier. However, we need the most
-  // significant digits first to convert to a number;
-  const reversed = bits.slice().reverse();
-  const digits = reversed.join('');
-  return parseInt(digits, 2);
 }
