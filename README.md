@@ -1,1 +1,1 @@
-# react-adder
+# bit-adder
