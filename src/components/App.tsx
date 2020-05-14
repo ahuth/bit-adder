@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BitInputRow from './BitInputRow';
 import add, { Bit } from '../add';
+import { invert } from '../circuitry';
 import styles from './App.module.css';
 
 export default function App() {
@@ -32,14 +33,14 @@ export default function App() {
           cssCell={styles.bit}
           heading="Input A"
           numEmptyLeadingCells={1}
-          setBits={setInputA}
+          renderBit={(bit, index) => <input checked={!!bit} onChange={() => setInputA(flipBit(index))} type="checkbox" />}
         />
         <BitInputRow
           bits={inputB}
           cssCell={styles.bit}
           heading="Input B"
           numEmptyLeadingCells={1}
-          setBits={setInputB}
+          renderBit={(bit, index) => <input checked={!!bit} onChange={() => setInputB(flipBit(index))} type="checkbox" />}
         />
         <tr>
           <th>Sum</th>
@@ -57,6 +58,14 @@ export default function App() {
       </tbody>
     </table>
   );
+}
+
+function flipBit(index: number) {
+  return function (bits: Bit[]) {
+    const nextBits = [...bits];
+    nextBits[index] = invert(nextBits[index]);
+    return nextBits;
+  };
 }
 
 function parseBits(bits: Bit[]): number {
