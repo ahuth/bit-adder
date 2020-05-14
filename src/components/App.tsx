@@ -1,27 +1,7 @@
 import React, { useState } from 'react';
+import BitInputRow from './BitInputRow';
 import add, { Bit } from '../add';
-import { invert } from '../circuitry';
 import styles from './App.module.css';
-
-function flipBit(index: number) {
-  return function (bits: Bit[]) {
-    const nextBits = [...bits];
-    nextBits[index] = invert(nextBits[index]);
-    return nextBits;
-  };
-}
-
-function parseBits(bits: Bit[]): number {
-  // The least significant digits are first, which makes adding easier. However, we need the most
-  // significant digits first to convert to a number;
-  const reversed = bits.slice().reverse();
-  const digits = reversed.join('');
-  return parseInt(digits, 2);
-}
-
-function toBoolean(bit: Bit): boolean {
-  return !!bit;
-}
 
 export default function App() {
   const [inputA, setInputA] = useState<Bit[]>([0, 0, 0, 0, 0, 0, 0, 0]);
@@ -47,32 +27,18 @@ export default function App() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>Input A</th>
-          <td className={styles.bit}></td>
-          <td className={styles.bit}><input checked={toBoolean(inputA[7])} onChange={() => setInputA(flipBit(7))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputA[6])} onChange={() => setInputA(flipBit(6))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputA[5])} onChange={() => setInputA(flipBit(5))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputA[4])} onChange={() => setInputA(flipBit(4))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputA[3])} onChange={() => setInputA(flipBit(3))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputA[2])} onChange={() => setInputA(flipBit(2))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputA[1])} onChange={() => setInputA(flipBit(1))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputA[0])} onChange={() => setInputA(flipBit(0))} type="checkbox" /></td>
-          <td className={styles.bit}>{parseBits(inputA)}</td>
-        </tr>
-        <tr>
-          <th>Input B</th>
-          <td className={styles.bit}></td>
-          <td className={styles.bit}><input checked={toBoolean(inputB[7])} onChange={() => setInputB(flipBit(7))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputB[6])} onChange={() => setInputB(flipBit(6))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputB[5])} onChange={() => setInputB(flipBit(5))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputB[4])} onChange={() => setInputB(flipBit(4))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputB[3])} onChange={() => setInputB(flipBit(3))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputB[2])} onChange={() => setInputB(flipBit(2))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputB[1])} onChange={() => setInputB(flipBit(1))} type="checkbox" /></td>
-          <td className={styles.bit}><input checked={toBoolean(inputB[0])} onChange={() => setInputB(flipBit(0))} type="checkbox" /></td>
-          <td className={styles.bit}>{parseBits(inputB)}</td>
-        </tr>
+        <BitInputRow
+          bits={inputA}
+          cssCell={styles.bit}
+          heading="Input A"
+          setBits={setInputA}
+        />
+        <BitInputRow
+          bits={inputB}
+          cssCell={styles.bit}
+          heading="Input B"
+          setBits={setInputB}
+        />
         <tr>
           <th>Sum</th>
           <td className={styles.bit}>{output[8] ? '✅' : null}</td>
@@ -89,4 +55,12 @@ export default function App() {
       </tbody>
     </table>
   );
+}
+
+function parseBits(bits: Bit[]): number {
+  // The least significant digits are first, which makes adding easier. However, we need the most
+  // significant digits first to convert to a number;
+  const reversed = bits.slice().reverse();
+  const digits = reversed.join('');
+  return parseInt(digits, 2);
 }
