@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BitInputRow from './BitInputRow';
+import BitRow from './BitRow';
 import add, { Bit } from '../add';
 import { invert } from '../circuitry';
 import styles from './App.module.css';
@@ -28,14 +28,14 @@ export default function App() {
         </tr>
       </thead>
       <tbody>
-        <BitInputRow
+        <BitRow
           bits={inputA}
           cssCell={styles.bit}
           heading="Input A"
           numEmptyLeadingCells={1}
           renderBit={(bit, index) => <input checked={!!bit} onChange={() => setInputA(flipBit(index))} type="checkbox" />}
         />
-        <BitInputRow
+        <BitRow
           bits={inputB}
           cssCell={styles.bit}
           heading="Input B"

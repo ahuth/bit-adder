@@ -13,7 +13,7 @@ type Props = {
   renderBit: (bit: Bit, index: number) => React.ReactNode,
 }
 
-export default function BitInputRow({ bits, cssCell, heading, numEmptyLeadingCells = 0, renderBit }: Props) {
+export default function BitRow({ bits, cssCell, heading, numEmptyLeadingCells = 0, renderBit }: Props) {
   // The least significant digit is first, which makes adding easier. However, we display the bits
   // in the opposite order.
   const reversedBits = bits.slice().reverse();
