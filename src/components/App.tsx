@@ -10,17 +10,17 @@ function flipBit(index: number) {
   };
 }
 
-function andAll(inputA: boolean[], inputB: boolean[]) {
+function nandAll(inputA: boolean[], inputB: boolean[]) {
   return inputA.map(function (bitA, index) {
     const bitB = inputB[index];
-    return Circuitry.and(bitA, bitB);
+    return Circuitry.nand(bitA, bitB);
   });
 }
 
 export default function App() {
   const [inputA, setInputA] = useState([false, false, false, false, false, false, false, false]);
   const [inputB, setInputB] = useState([false, false, false, false, false, false, false, false]);
-  const output  = andAll(inputA, inputB);
+  const output  = nandAll(inputA, inputB);
 
   return (
     <form>
