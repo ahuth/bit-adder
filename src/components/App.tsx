@@ -31,12 +31,14 @@ export default function App() {
           bits={inputA}
           cssCell={styles.bit}
           heading="Input A"
+          numEmptyLeadingCells={1}
           setBits={setInputA}
         />
         <BitInputRow
           bits={inputB}
           cssCell={styles.bit}
           heading="Input B"
+          numEmptyLeadingCells={1}
           setBits={setInputB}
         />
         <tr>

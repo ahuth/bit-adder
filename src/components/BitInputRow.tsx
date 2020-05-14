@@ -1,18 +1,20 @@
 import React from 'react';
+import range from 'lodash/range';
 import { Bit, invert } from '../circuitry';
 
 type Props = {
   bits: Bit[],
   cssCell?: string,
   heading: React.ReactNode,
+  numEmptyLeadingCells?: number,
   setBits: (setState: (bits: Bit[]) => Bit[]) => void,
 }
 
-export default function BitInputRow({ bits, cssCell, heading, setBits }: Props) {
+export default function BitInputRow({ bits, cssCell, heading, numEmptyLeadingCells = 0, setBits }: Props) {
   return (
     <tr>
       <th>{heading}</th>
-      <td className={cssCell}></td>
+      {range(numEmptyLeadingCells).map(() => <td className={cssCell}></td>)}
       <td className={cssCell}><input checked={!!bits[7]} onChange={() => setBits(flipBit(7))} type="checkbox" /></td>
       <td className={cssCell}><input checked={!!bits[6]} onChange={() => setBits(flipBit(6))} type="checkbox" /></td>
       <td className={cssCell}><input checked={!!bits[5]} onChange={() => setBits(flipBit(5))} type="checkbox" /></td>
