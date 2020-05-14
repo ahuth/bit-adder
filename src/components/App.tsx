@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as Circuitry from '../circuitry';
+import add from '../add';
 import styles from './App.module.css';
 
 function flipBit(index: number) {
@@ -10,17 +10,10 @@ function flipBit(index: number) {
   };
 }
 
-function xorAll(inputA: boolean[], inputB: boolean[]) {
-  return inputA.map(function (bitA, index) {
-    const bitB = inputB[index];
-    return Circuitry.xor(bitA, bitB);
-  });
-}
-
 export default function App() {
   const [inputA, setInputA] = useState([false, false, false, false, false, false, false, false]);
   const [inputB, setInputB] = useState([false, false, false, false, false, false, false, false]);
-  const output  = xorAll(inputA, inputB);
+  const output  = add(inputA, inputB);
 
   return (
     <form>
@@ -53,7 +46,7 @@ export default function App() {
       <fieldset>
         <legend>Output</legend>
         <div className={styles.outputContainer}>
-          <span className={styles.bit}>O8 &nbsp;</span>
+          <span className={styles.bit}>O8 {output[8] ? '✅' : null}</span>
           <span className={styles.bit}>O7 {output[7] ? '✅' : null}</span>
           <span className={styles.bit}>O6 {output[6] ? '✅' : null}</span>
           <span className={styles.bit}>O5 {output[5] ? '✅' : null}</span>

@@ -1,4 +1,4 @@
-type Bit = boolean;
+export type Bit = boolean;
 
 export function and(a: Bit, b: Bit): Bit {
   if (a) {
