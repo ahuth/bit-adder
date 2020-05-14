@@ -23,3 +23,16 @@ export function or(a: Bit, b: Bit): Bit {
   if (b) { return true; }
   return false;
 }
+
+export function xor(a: Bit, b: Bit): Bit {
+  return nand(
+    nand(
+      a,
+      nand(a, b),
+    ),
+    nand(
+      nand(a, b),
+      b,
+    ),
+  );
+}
