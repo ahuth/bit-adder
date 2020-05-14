@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import BitRow from './BitRow';
-import add, { Bit } from '../add';
-import { invert } from '../circuitry';
+import add from '../add';
 import styles from './App.module.css';
+import { invert } from '../circuitry';
+import type { Bit } from '../bit';
 
 export default function App() {
   const [inputA, setInputA] = useState<Bit[]>([0, 0, 0, 0, 0, 0, 0, 0]);

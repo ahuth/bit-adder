@@ -1,4 +1,4 @@
-export type Bit = 0 | 1;
+import type { Bit } from './bit';
 
 export function and(a: Bit, b: Bit): Bit {
   if (a) {

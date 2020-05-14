@@ -1,6 +1,5 @@
-import { Bit, and, or, xor } from './circuitry';
-
-export type { Bit };
+import { and, or, xor } from './circuitry';
+import type { Bit } from './bit';
 
 // Add 2 1-bit numbers together.
 function halfAdder(augend: Bit, addend: Bit) {
