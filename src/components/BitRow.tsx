@@ -22,8 +22,8 @@ export default function BitRow({ bits, cssCell, heading, numEmptyLeadingCells = 
     <tr>
       <th>{heading}</th>
 
-      {range(numEmptyLeadingCells).map(function () {
-        return <td className={cssCell}></td>;
+      {range(numEmptyLeadingCells).map(function (num) {
+        return <td className={cssCell} key={num}></td>;
       })}
 
       {reversedBits.map(function (bit, index) {
@@ -31,7 +31,7 @@ export default function BitRow({ bits, cssCell, heading, numEmptyLeadingCells = 
         // reverse order, and must convert from the displayed index to the bits index here.
         const adjustedIndex = (bits.length - 1) - index;
 
-        return <td className={cssCell}>{renderBit(bit, adjustedIndex)}</td>;
+        return <td className={cssCell} key={index}>{renderBit(bit, adjustedIndex)}</td>;
       })}
 
       <td className={cssCell}>{parseBits(bits)}</td>
