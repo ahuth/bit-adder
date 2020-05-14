@@ -10,17 +10,17 @@ function flipBit(index: number) {
   };
 }
 
-function orAll(inputA: boolean[], inputB: boolean[]) {
+function andAll(inputA: boolean[], inputB: boolean[]) {
   return inputA.map(function (bitA, index) {
     const bitB = inputB[index];
-    return Circuitry.or(bitA, bitB);
+    return Circuitry.and(bitA, bitB);
   });
 }
 
 export default function App() {
   const [inputA, setInputA] = useState([false, false, false, false, false, false, false, false]);
   const [inputB, setInputB] = useState([false, false, false, false, false, false, false, false]);
-  const output  = orAll(inputA, inputB);
+  const output  = andAll(inputA, inputB);
 
   return (
     <form>
