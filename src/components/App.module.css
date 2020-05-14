@@ -1,18 +1,4 @@
 .bit {
-  width: 50px;
-}
-
-.container {
-  display: flex;
-  height: 22px;
-  padding: 0;
-}
-
-.outputContainer {
-  composes: container;
-}
-
-.switchContainer {
-  margin-left: 50px;
-  composes: container;
+  height: 24px;
+  width: 24px;
 }
