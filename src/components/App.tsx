@@ -53,15 +53,15 @@ export default function App() {
       <fieldset>
         <legend>Output</legend>
         <div className={styles.outputContainer}>
-          <label className={styles.bit}>O8 <input checked={false} disabled type="checkbox" /></label>
-          <label className={styles.bit}>O7 <input checked={output[7]} disabled type="checkbox" /></label>
-          <label className={styles.bit}>O6 <input checked={output[6]} disabled type="checkbox" /></label>
-          <label className={styles.bit}>O5 <input checked={output[5]} disabled type="checkbox" /></label>
-          <label className={styles.bit}>O4 <input checked={output[4]} disabled type="checkbox" /></label>
-          <label className={styles.bit}>O3 <input checked={output[3]} disabled type="checkbox" /></label>
-          <label className={styles.bit}>O2 <input checked={output[2]} disabled type="checkbox" /></label>
-          <label className={styles.bit}>O1 <input checked={output[1]} disabled type="checkbox" /></label>
-          <label className={styles.bit}>O0 <input checked={output[0]} disabled type="checkbox" /></label>
+          <span className={styles.bit}>O8 &nbsp;</span>
+          <span className={styles.bit}>O7 {output[7] ? '✅' : null}</span>
+          <span className={styles.bit}>O6 {output[6] ? '✅' : null}</span>
+          <span className={styles.bit}>O5 {output[5] ? '✅' : null}</span>
+          <span className={styles.bit}>O4 {output[4] ? '✅' : null}</span>
+          <span className={styles.bit}>O3 {output[3] ? '✅' : null}</span>
+          <span className={styles.bit}>O2 {output[2] ? '✅' : null}</span>
+          <span className={styles.bit}>O1 {output[1] ? '✅' : null}</span>
+          <span className={styles.bit}>O0 {output[0] ? '✅' : null}</span>
         </div>
       </fieldset>
     </form>
