@@ -25,14 +25,18 @@ export function or(a: Bit, b: Bit): Bit {
 }
 
 export function xor(a: Bit, b: Bit): Bit {
-  return nand(
-    nand(
-      a,
-      nand(a, b),
-    ),
-    nand(
-      nand(a, b),
-      b,
-    ),
+  // return nand(
+  //   nand(
+  //     a,
+  //     nand(a, b),
+  //   ),
+  //   nand(
+  //     nand(a, b),
+  //     b,
+  //   ),
+  // );
+  return and(
+    or(a, b),
+    nand(a, b),
   );
 }
