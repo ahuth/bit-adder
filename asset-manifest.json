@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/bit-adder/static/css/main.844b30b7.chunk.css",
-    "main.js": "/bit-adder/static/js/main.105173ed.chunk.js",
-    "main.js.map": "/bit-adder/static/js/main.105173ed.chunk.js.map",
-    "runtime-main.js": "/bit-adder/static/js/runtime-main.bee47d51.js",
-    "runtime-main.js.map": "/bit-adder/static/js/runtime-main.bee47d51.js.map",
-    "static/js/2.448c4125.chunk.js": "/bit-adder/static/js/2.448c4125.chunk.js",
-    "static/js/2.448c4125.chunk.js.map": "/bit-adder/static/js/2.448c4125.chunk.js.map",
+    "main.js": "/bit-adder/static/js/main.f3ded382.chunk.js",
+    "main.js.map": "/bit-adder/static/js/main.f3ded382.chunk.js.map",
+    "runtime-main.js": "/bit-adder/static/js/runtime-main.b7c2eaeb.js",
+    "runtime-main.js.map": "/bit-adder/static/js/runtime-main.b7c2eaeb.js.map",
+    "static/js/2.38435f6a.chunk.js": "/bit-adder/static/js/2.38435f6a.chunk.js",
+    "static/js/2.38435f6a.chunk.js.map": "/bit-adder/static/js/2.38435f6a.chunk.js.map",
     "index.html": "/bit-adder/index.html",
-    "precache-manifest.e6c307e0333bbaf13dc3ca647215bda7.js": "/bit-adder/precache-manifest.e6c307e0333bbaf13dc3ca647215bda7.js",
+    "precache-manifest.b5d01f8019963263c04f218a0f3c327e.js": "/bit-adder/precache-manifest.b5d01f8019963263c04f218a0f3c327e.js",
     "service-worker.js": "/bit-adder/service-worker.js",
     "static/css/main.844b30b7.chunk.css.map": "/bit-adder/static/css/main.844b30b7.chunk.css.map",
-    "static/js/2.448c4125.chunk.js.LICENSE.txt": "/bit-adder/static/js/2.448c4125.chunk.js.LICENSE.txt"
+    "static/js/2.38435f6a.chunk.js.LICENSE.txt": "/bit-adder/static/js/2.38435f6a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.bee47d51.js",
-    "static/js/2.448c4125.chunk.js",
+    "static/js/runtime-main.b7c2eaeb.js",
+    "static/js/2.38435f6a.chunk.js",
     "static/css/main.844b30b7.chunk.css",
-    "static/js/main.105173ed.chunk.js"
+    "static/js/main.f3ded382.chunk.js"
   ]
 }
